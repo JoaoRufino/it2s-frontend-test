@@ -1,0 +1,48 @@
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+#map-canvas {
+  height: 100%;
+}
+
+         /*style the box*/  
+         .gm-style .gm-style-iw {
+            background-color: #ad413c !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            min-height: 120px !important;
+            padding-top: 10px;
+            display: block !important;
+            text-align: center;
+         }    
+     
+         /*style the p tag*/
+         .gm-style .gm-style-iw #google-popup p{
+            padding: 1x;
+         }
+         
+        .gm-style-iw + div {display: none;}
+
+        /*style the arrow*/
+        .gm-style div div div div div div div div {
+            background-color: #ad413c !important;
+            padding: 0;
+            margin: 0;
+            padding: 0;
+            top: 0;
+            color: #fff;
+            font-size: 14px;
+        }
+        
+        /*style the link*/
+        .gm-style div div div div div div div div a {
+            color: #f1f1f1;
+            font-weight: bold;
+        }
