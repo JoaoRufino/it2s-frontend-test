@@ -535,10 +535,9 @@ var $markers= List.create();
       var match = $markers.find(function(marker) {
                 return marker.getLatLng().distanceTo(latlng)<1
       });
-      console.log(match[0]);
-
+      console.log(match[0].getLatLng() + "Ponto LATLNG");
      	$map.ws.send(JSON.stringify({ 
-			Msg_type : 0, 
+			  Msg_type : 0, 
 		    CauseCode : parseInt(codes[0]),
 		    SubCauseCode: parseInt(codes[1]), 
 		    Lat: parseInt(match[0].getLatLng().lat*10000000), 

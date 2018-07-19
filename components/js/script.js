@@ -1,8 +1,21 @@
 var $mapster;
 var $i;
+let myLabels = document.querySelectorAll('.lbl-toggle');
+
+Array.from(myLabels).forEach(label => {
+  label.addEventListener('keydown', e => {
+    // 32 === spacebar
+    // 13 === enter
+    if (e.which === 32 || e.which === 13) {
+      e.preventDefault();
+      label.click();
+    };
+  });
+});
+
 (function(window, $) {
      //ws = new WebSocket('ws://193.136.92.95:4000')
-     ws = new WebSocket('ws://193.136.93.45:4000')
+     ws = new WebSocket('ws://193.136.93.199:4000')
     ws.onopen = onOpen;
     ws.onmessage =onMessage;
     ws.onclose = onOpen;
@@ -81,14 +94,17 @@ function onOpen (evt) {
         if(ops.Termination==1){
           $mapster.mapster('removeMarkers', function(marker) {
                 //value=""+ops.ID+","+ops.CauseCode+","+ops.SubCauseCode
-                return marker.getPopup().getContent().includes(ops.CauseCode+","+ops.SubCauseCode)
+                console.log(ops)
+                var latlng = L.latLng(ops.Lat/10000000, ops.Lng/10000000);
+                console.log(latlng)
+                return marker.getLatLng().equals(latlng)
               }); }
 
         else{
         console.log(ops.Timestamp)
         console.log("DENM |"+ ops.CauseCode)
             marker=$mapster.mapster('addMarker',{
-            latlng: [ops.Lat/10000000,ops.Lng/10000000],
+            latlng: [ops.Lat,ops.Lng],
             code: ops.CauseCode,
             subcode:ops.SubCauseCode,
             timestamp: ops.Timestamp,

@@ -1,4 +1,4 @@
-(function(window){
+(function(window){	
 	var List = (function(){
 		function List(params){
 			this.items=[];
